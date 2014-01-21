@@ -1,11 +1,5 @@
 package com.alexstoick.PRA.coursework1;
 
-import runningdata.DataTable;
-import runningdata.LocationNameAndKey;
-import runningdata.RunningAPI;
-
-import java.util.LinkedList;
-
 /**
  * Created by alexstoick on 1/21/14.
  */
@@ -16,7 +10,7 @@ public class MainApp {
 
 	public static void main ( String args[]) {
 
-		System.out.println ( WorldRecordsTimes.getRecordForAgeGroupAndGender ( "JW15-19" , "M" ) ) ;
+		//System.out.println ( WorldRecordsTimes.getRecordForAgeGroupAndGender ( "JW15-19" , "M" ) ) ;
 
 //		RunningAPI server = new RunningAPI () ;
 //
