@@ -13,6 +13,15 @@ public class Runner {
 	private String category;
 	private String bib ;
 
+	/**
+	 * Creates a new runner with the given parameters.
+	 * @param raceTime
+	 * @param gender
+	 * @param numberOfRuns
+	 * @param category
+	 * @param finishPosition
+	 * @param bib
+	 */
 	public Runner ( String raceTime , String gender , String numberOfRuns ,
 	                    String category , String finishPosition , String bib )
 	{
@@ -35,6 +44,10 @@ public class Runner {
 									+ Integer.parseInt ( seconds ) ;
 	}
 
+	/**
+	 *
+	 * @return Return the finish position.
+	 */
 	public int getFinishPosition ()
 	{
 		return finishPosition ;

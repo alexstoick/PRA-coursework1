@@ -1,9 +1,5 @@
 package com.alexstoick.PRA.coursework1;
 
-import javafx.util.Pair;
-
-import java.util.HashMap;
-
 /**
  * Created by alexstoick on 1/21/14.
  */
@@ -16,6 +12,12 @@ public class WorldRecordsTimes {
 	private static final Integer[] womenRaceTimes = { 851,871,876,921,957,1013,1076,1129,1216,
 														1297,1445,1618,1973,2489,3974 } ;
 
+	/**
+	 *
+	 * @param ageGroup The age group of a runner, as given by the API.
+	 * @param gender The gender of the runner.
+	 * @return Returns the world record for the age group and gender of the given runner.
+	 */
 	public static int getRecordForAgeGroupAndGender ( String ageGroup, String gender )
 	{
 		int ageGroupTopBound = Integer.parseInt (ageGroup.substring (4)) ;
