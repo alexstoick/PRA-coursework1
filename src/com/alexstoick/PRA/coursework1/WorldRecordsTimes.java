@@ -27,7 +27,6 @@ public class WorldRecordsTimes {
 			ageGroupTopBound = Integer.parseInt (ageGroup.substring (5)) ;
 		int size = ageGroups.length ;
 		int index = 0 ;
-		System.out.println ( ageGroup + " " + gender + " " + ageGroupTopBound) ;
 
 		for ( int i = 0 ; i < size ; ++ i )
 		{

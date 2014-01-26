@@ -21,11 +21,12 @@ public class ListController extends Observable implements Observer,ListSelection
 	}
 
 	public void valueChanged (ListSelectionEvent e) {
-
 		System.out.println ( "Selected stuff" ) ;
 		setChanged();
-		notifyObservers( raceDataSource.raceAtIndex ( list.getSelectedIndex () ) );
-
+		int selectedIndex = list.getSelectedIndex () ;
+		notifyObservers( new Object[] { raceDataSource.runnersForRaceAtIndex ( selectedIndex ) ,
+						raceDataSource.ageGroupsForRaceAtIndex( selectedIndex) ,
+						selectedIndex } );
 	}
 
 
@@ -39,11 +40,9 @@ public class ListController extends Observable implements Observer,ListSelection
 		raceDataSource.queryWithString ( searchTerm ) ;
 		DefaultListModel listModel = (DefaultListModel)list.getModel () ;
 		listModel.removeAllElements ();
-		if ( raceDataSource.races != null )
-			for ( Race currentRace : raceDataSource.races )
-			{
-				System.out.println ( currentRace.getName());
-				listModel.addElement ( currentRace.getName () );
-			}
+		for ( int i = 0 ; i < raceDataSource.getRacesCount () ; ++ i )
+		{
+			listModel.addElement ( raceDataSource.getNameForRaceAtIndex (i) );
+		}
 	}
 }

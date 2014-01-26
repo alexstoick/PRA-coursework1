@@ -1,5 +1,8 @@
 package com.alexstoick.PRA.coursework1;
 
+import com.alexstoick.PRA.coursework1.Runner.Runner;
+import com.alexstoick.PRA.coursework1.Runner.RunnerComparator;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
@@ -42,9 +45,30 @@ public class Race {
 		addAgeGroup ( r.getCategory () );
 	}
 
+	public HashSet<String> getAgeGroups () {
+		return ageGroups;
+	}
+
 	public Runner getRunnerAtIndex ( int i )
 	{
 		return runners.get(i) ;
+	}
+
+	public ArrayList<Runner> getRunners ( )
+	{
+		return runners ;
+	}
+
+	public ArrayList<Runner> getRunnersWithAgeCategory ( String ageCategory )
+	{
+		ArrayList<Runner> runnersWithProperty = new ArrayList<Runner> () ;
+		for ( Runner r : runners )
+		{
+			if ( r.getCategory().equals ( ageCategory ) )
+				runnersWithProperty.add(r) ;
+		}
+
+		return runnersWithProperty ;
 	}
 
 	/**

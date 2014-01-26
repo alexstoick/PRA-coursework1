@@ -1,4 +1,6 @@
-package com.alexstoick.PRA.coursework1;
+package com.alexstoick.PRA.coursework1.Runner;
+
+import com.alexstoick.PRA.coursework1.WorldRecordsTimes;
 
 /**
  * Created by alexstoick on 1/21/14.
@@ -73,7 +75,7 @@ public class Runner {
 		String seconds = splitRaceTime[2] ;
 		raceTimeInSeconds = Integer.parseInt (hours) * 3600 + Integer.parseInt ( minutes ) * 60
 									+ Integer.parseInt ( seconds ) ;
-		int worldRecord = WorldRecordsTimes.getRecordForAgeGroupAndGender ( category , gender ) ;
+		int worldRecord = WorldRecordsTimes.getRecordForAgeGroupAndGender (category, gender) ;
 		score = (float)worldRecord / (float)raceTimeInSeconds ;
 	}
 

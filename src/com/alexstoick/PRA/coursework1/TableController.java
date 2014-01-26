@@ -1,7 +1,10 @@
 package com.alexstoick.PRA.coursework1;
 
+import com.alexstoick.PRA.coursework1.Runner.Runner;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -16,7 +19,7 @@ public class TableController implements Observer{
 	public TableController ( JTable table )
 	{
 		this.table = table ;
-		tableModel = (DefaultTableModel)table.getModel () ;
+		tableModel = (DefaultTableModel)this.table.getModel () ;
 
 		tableModel.addColumn ( "Position" );
 		tableModel.addColumn ( "Bib No." ) ;
@@ -33,13 +36,14 @@ public class TableController implements Observer{
 			tableModel.removeRow (i);
 	}
 
-	public void refreshTable ( Race race )
+	public void refreshTable ( ArrayList<Runner> runners)
 	{
 		clearTable () ;
 
-		for ( int i = 0 ; i < 10 ; ++ i )
+		int size = Math.min ( runners.size () , 10 );
+		for ( int i = 0 ; i <  size ; ++ i )
 		{
-			Runner currentRunner = race.getRunnerAtIndex ( i ) ;
+			Runner currentRunner = runners.get(i) ;
 			tableModel.addRow ( new Object[]{ currentRunner.getFinishPosition () , currentRunner.getBib () ,
 					currentRunner.getRaceTime () , currentRunner.getGender () , currentRunner.getCategory () ,
 					currentRunner.getNumberOfRuns () } );
@@ -48,7 +52,8 @@ public class TableController implements Observer{
 
 	public void update (Observable o, Object arg) {
 
-		refreshTable ( (Race) arg ) ;
+		Object[] argument_array = (Object[]) arg ;
+		refreshTable ( (ArrayList<Runner>) argument_array[0] ) ;
 
 	}
 }

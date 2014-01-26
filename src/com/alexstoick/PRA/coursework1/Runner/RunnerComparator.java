@@ -1,4 +1,4 @@
-package com.alexstoick.PRA.coursework1;
+package com.alexstoick.PRA.coursework1.Runner;
 
 import java.util.Comparator;
 

@@ -12,20 +12,6 @@ public class MainApp {
 
 	public static void main ( String args[]) {
 
-		//System.out.println ( WorldRecordsTimes.getRecordForAgeGroupAndGender ( "JW15-19" , "M" ) ) ;
-//
-//		Race test = new Race ( "bla" , 123 ) ;
-//
-//		test.addRunner (new Runner ("00:15:20", "M", "10",
-//				"JW10-14", "5", "12321")) ;
-//
-//		test.addRunner ( new Runner ( "00:14:20", "M", "10" ,
-//				"JW10-14", "4", "12321" ) ) ;
-//
-//		test.orderRunners ();
-//
-//		test.printRunners ();
-
 		MainFrame mainFrame = new MainFrame() ;
 
 		RunningAPI server = Server.getInstance () ;
@@ -40,9 +26,12 @@ public class MainApp {
 		SearchController searchController = new SearchController (mainFrame.getSearchTextField ()) ;
 		ListController listController = new ListController( mainFrame.getRaceList () ) ;
 		TableController tableController = new TableController ( mainFrame.getRaceResultsTable () ) ;
+		ComboBoxController comboBoxController = new ComboBoxController ( mainFrame.getRaceTypeComboBox () ) ;
 
 		listController.addObserver ( tableController );
 		searchController.addObserver ( listController );
+		listController.addObserver ( comboBoxController ) ;
+		comboBoxController.addObserver ( tableController );
 
 		JButton goButton = mainFrame.getGoButton () ;
 		goButton.addActionListener ( searchController);

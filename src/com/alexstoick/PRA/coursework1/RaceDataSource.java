@@ -1,10 +1,12 @@
 package com.alexstoick.PRA.coursework1;
 
+import com.alexstoick.PRA.coursework1.Runner.Runner;
 import runningdata.DataTable;
 import runningdata.LocationNameAndKey;
 import runningdata.RunningAPI;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.LinkedList;
 
 /**
@@ -14,8 +16,8 @@ import java.util.LinkedList;
 public class RaceDataSource {
 
 	private RunningAPI server ;
-	LinkedList<LocationNameAndKey> results ;
-	ArrayList<Race> races = new ArrayList<Race> () ;
+	private static LinkedList<LocationNameAndKey> results ;
+	private static ArrayList<Race> races = new ArrayList<Race> () ;
 
 	/**
 	 * Creates a new reference to the singleton class Server.
@@ -64,14 +66,34 @@ public class RaceDataSource {
 
 	}
 
-	/**
-	 *
-	 * @param i Index of race.
-	 * @return Race at given index.
-	 */
-	public Race raceAtIndex ( int i )
+	public static int getRacesCount ( )
+	{
+		return races.size () ;
+	}
+
+	public static String getNameForRaceAtIndex ( int i )
+	{
+		return races.get(i).getName () ;
+	}
+
+	public static Race getRaceAtIndex ( int i )
 	{
 		return races.get(i) ;
+	}
+
+	public static ArrayList<Runner> runnersForRaceAtIndexWithAgeGroup ( int i , String ageGroup )
+	{
+		return races.get(i).getRunnersWithAgeCategory ( ageGroup ) ;
+	}
+
+	public static HashSet<String> ageGroupsForRaceAtIndex ( int i )
+	{
+		return races.get(i).getAgeGroups () ;
+	}
+
+	public static ArrayList<Runner> runnersForRaceAtIndex ( int i )
+	{
+		return races.get(i).getRunners () ;
 	}
 
 }
