@@ -111,6 +111,7 @@
                 <constraints border-constraint="Center"/>
                 <properties>
                   <autoscrolls value="true"/>
+                  <minimumSize width="250" height="25"/>
                 </properties>
                 <border type="none"/>
                 <children>

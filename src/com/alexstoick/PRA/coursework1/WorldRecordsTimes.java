@@ -20,9 +20,14 @@ public class WorldRecordsTimes {
 	 */
 	public static int getRecordForAgeGroupAndGender ( String ageGroup, String gender )
 	{
-		int ageGroupTopBound = Integer.parseInt (ageGroup.substring (4)) ;
+		int ageGroupTopBound = 0 ;
+		if ( ageGroup.length () == 4 )
+			ageGroupTopBound = Integer.parseInt ( ageGroup.substring (2) ) ;
+		else
+			ageGroupTopBound = Integer.parseInt (ageGroup.substring (5)) ;
 		int size = ageGroups.length ;
 		int index = 0 ;
+		System.out.println ( ageGroup + " " + gender + " " + ageGroupTopBound) ;
 
 		for ( int i = 0 ; i < size ; ++ i )
 		{

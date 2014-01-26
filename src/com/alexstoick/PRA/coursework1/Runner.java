@@ -12,6 +12,7 @@ public class Runner {
 	private Integer finishPosition ;
 	private String category;
 	private String bib ;
+	private Float score ;
 
 	/**
 	 * Creates a new runner with the given parameters.
@@ -26,16 +27,17 @@ public class Runner {
 	                    String category , String finishPosition , String bib )
 	{
 		this.raceTime = raceTime ;
-		setupRaceTimeInSeconds() ;
 		this.gender = gender ;
 		this.finishPosition = Integer.parseInt ( finishPosition ) ;
 		this.numberOfRuns = Integer.parseInt ( numberOfRuns ) ;
 		this.category = category ;
 		this.bib = bib ;
+		setupRaceTimeInSeconds() ;
 	}
 
 	public String getRaceTime () {
-		return raceTime.substring (3);
+		String formattedScore = String.format ( "(%.3f)" , score ) ;
+		return raceTime.substring (3) + formattedScore;
 	}
 
 	public Integer getRaceTimeInSeconds () {
@@ -69,8 +71,10 @@ public class Runner {
 		String hours   = splitRaceTime[0] ;
 		String minutes = splitRaceTime[1] ;
 		String seconds = splitRaceTime[2] ;
-		this.raceTimeInSeconds = Integer.parseInt (hours) * 3600 + Integer.parseInt ( minutes ) * 60
+		raceTimeInSeconds = Integer.parseInt (hours) * 3600 + Integer.parseInt ( minutes ) * 60
 									+ Integer.parseInt ( seconds ) ;
+		int worldRecord = WorldRecordsTimes.getRecordForAgeGroupAndGender ( category , gender ) ;
+		score = (float)worldRecord / (float)raceTimeInSeconds ;
 	}
 
 	/**

@@ -13,18 +13,18 @@ public class MainApp {
 	public static void main ( String args[]) {
 
 		//System.out.println ( WorldRecordsTimes.getRecordForAgeGroupAndGender ( "JW15-19" , "M" ) ) ;
-
-		Race test = new Race ( "bla" , 123 ) ;
-
-		test.addRunner (new Runner ("00:15:20", "M", "10",
-				"JW10-14", "5", "12321")) ;
-
-		test.addRunner ( new Runner ( "00:14:20", "M", "10" ,
-				"JW10-14", "4", "12321" ) ) ;
-
-		test.orderRunners ();
-
-		test.printRunners ();
+//
+//		Race test = new Race ( "bla" , 123 ) ;
+//
+//		test.addRunner (new Runner ("00:15:20", "M", "10",
+//				"JW10-14", "5", "12321")) ;
+//
+//		test.addRunner ( new Runner ( "00:14:20", "M", "10" ,
+//				"JW10-14", "4", "12321" ) ) ;
+//
+//		test.orderRunners ();
+//
+//		test.printRunners ();
 
 		MainFrame mainFrame = new MainFrame() ;
 
