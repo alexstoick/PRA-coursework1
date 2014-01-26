@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.alexstoick.PRA.coursework1.MainFrame">
-  <grid id="27dc6" binding="rootPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
+  <grid id="27dc6" binding="rootPanel" layout-manager="BorderLayout" hgap="5" vgap="0">
     <constraints>
-      <xy x="20" y="20" width="500" height="400"/>
+      <xy x="20" y="20" width="500" height="500"/>
     </constraints>
-    <properties/>
-    <border type="none"/>
+    <properties>
+      <minimumSize width="500" height="300"/>
+      <preferredSize width="500" height="300"/>
+    </properties>
+    <border type="bevel-raised"/>
     <children>
       <grid id="c86f3" binding="topPanel" layout-manager="GridLayoutManager" row-count="1" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="10" left="10" bottom="10" right="10"/>
@@ -21,7 +24,7 @@
               <text value="Search"/>
             </properties>
           </component>
-          <component id="5cf92" class="javax.swing.JTextField" binding="textField1" default-binding="true">
+          <component id="5cf92" class="javax.swing.JTextField" binding="searchTextField">
             <constraints>
               <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="-1"/>
@@ -50,16 +53,72 @@
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties/>
-            <border type="none"/>
-            <children/>
+            <border type="none" title="Possible Races" title-justification="2"/>
+            <children>
+              <scrollpane id="3c54b" binding="raceListScrollPane">
+                <constraints border-constraint="Center"/>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="6293b" class="javax.swing.JList" binding="raceList">
+                    <constraints/>
+                    <properties>
+                      <model>
+                        <item value="Preston Race"/>
+                        <item value="Preston Park Race"/>
+                        <item value="Bla"/>
+                        <item value="Bla"/>
+                        <item value="Bla"/>
+                        <item value="Bla"/>
+                        <item value="BlaPreston Race"/>
+                        <item value="Preston Park Race"/>
+                        <item value="Bla"/>
+                        <item value="Bla"/>
+                        <item value="Bla"/>
+                        <item value="Bla"/>
+                        <item value="BlaPreston Race"/>
+                        <item value="Preston Park Race"/>
+                        <item value="Bla"/>
+                        <item value="Bla"/>
+                        <item value="Bla"/>
+                        <item value="Bla"/>
+                        <item value="Bla"/>
+                      </model>
+                    </properties>
+                  </component>
+                </children>
+              </scrollpane>
+            </children>
           </grid>
           <grid id="9c747" binding="rightPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
             <constraints>
               <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties/>
-            <border type="none"/>
-            <children/>
+            <border type="none" title="Top Ten Finishers" title-justification="2"/>
+            <children>
+              <component id="6e1b8" class="javax.swing.JComboBox" binding="raceTypeComboBox">
+                <constraints border-constraint="North"/>
+                <properties>
+                  <model>
+                    <item value="All"/>
+                    <item value="SW20-24"/>
+                    <item value="VT30-34"/>
+                  </model>
+                </properties>
+              </component>
+              <scrollpane id="81413" binding="raceResultsScrollPane">
+                <constraints border-constraint="Center"/>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="615d4" class="javax.swing.JTable" binding="raceResultsTable">
+                    <constraints/>
+                    <properties/>
+                  </component>
+                </children>
+              </scrollpane>
+            </children>
           </grid>
         </children>
       </grid>

@@ -1,6 +1,7 @@
 package com.alexstoick.PRA.coursework1;
 
 import javax.swing.*;
+import java.awt.*;
 
 /**
  * Created by alexstoick on 1/21/14.
@@ -9,6 +10,12 @@ public class MainApp {
 
 	private static final String  email = "alexandru.stoica" ;
 	private static final String license_key = "3ae4b3d52a"  ;
+	private static JFrame frame ;
+
+	public static JFrame getFrame ()
+	{
+		return frame ;
+	}
 
 	public static void main ( String args[]) {
 
@@ -26,11 +33,27 @@ public class MainApp {
 
 		test.printRunners ();
 
-		JFrame frame = new JFrame ("MainFrame");
-		frame.setContentPane (new MainFrame ().getRootPanel ());
+		MainFrame mainFrame = new MainFrame() ;
+
+		frame = new JFrame ("MainFrame");
+		frame.setContentPane (mainFrame.getRootPanel ());
+		frame.setMinimumSize(new Dimension (500, 300));
 		frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
 		frame.pack ();
 		frame.setVisible (true);
+
+		SearchController searchController = new SearchController (mainFrame.getSearchTextField ()) ;
+		ListController listController = new ListController() ;
+
+		searchController.addObserver ( listController );
+
+		JButton goButton = mainFrame.getGoButton () ;
+		goButton.addActionListener ( searchController);
+
+		JTextField searchTextField = mainFrame.getSearchTextField () ;
+		searchTextField.addActionListener ( searchController );
+
+
 
 //      RunningAPI server = new RunningAPI () ;
 //
