@@ -34,9 +34,30 @@ public class Runner {
 		this.bib = bib ;
 	}
 
+	public String getRaceTime () {
+		return raceTime.substring (3);
+	}
+
+	public Integer getRaceTimeInSeconds () {
+		return raceTimeInSeconds;
+	}
+
+	public String getGender () {
+		return gender;
+	}
+
+	public Integer getNumberOfRuns () {
+		return numberOfRuns;
+	}
+
+	public String getBib () {
+		return bib;
+	}
+
 	/**
 	 *
 	 * @return Returns the age category of the runner.
+
 	 */
 	public String getCategory () {
 		return category;

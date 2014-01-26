@@ -32,14 +32,16 @@ public class MainApp {
 
 		JFrame frame = new JFrame ("MainFrame");
 		frame.setContentPane (mainFrame.getRootPanel ());
-		frame.setMinimumSize(new Dimension (500, 300));
+		frame.setMinimumSize(new Dimension (800, 300));
 		frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
 		frame.pack ();
 		frame.setVisible (true);
 
 		SearchController searchController = new SearchController (mainFrame.getSearchTextField ()) ;
 		ListController listController = new ListController( mainFrame.getRaceList () ) ;
+		TableController tableController = new TableController ( mainFrame.getRaceResultsTable () ) ;
 
+		listController.addObserver ( tableController );
 		searchController.addObserver ( listController );
 
 		JButton goButton = mainFrame.getGoButton () ;

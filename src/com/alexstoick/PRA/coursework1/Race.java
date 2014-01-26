@@ -42,6 +42,11 @@ public class Race {
 		addAgeGroup ( r.getCategory () );
 	}
 
+	public Runner getRunnerAtIndex ( int i )
+	{
+		return runners.get(i) ;
+	}
+
 	/**
 	 * Using the RunnerComparator class we order the runners array by their finish position.
 	 */

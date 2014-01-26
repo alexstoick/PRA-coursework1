@@ -109,7 +109,9 @@
               </component>
               <scrollpane id="81413" binding="raceResultsScrollPane">
                 <constraints border-constraint="Center"/>
-                <properties/>
+                <properties>
+                  <autoscrolls value="true"/>
+                </properties>
                 <border type="none"/>
                 <children>
                   <component id="615d4" class="javax.swing.JTable" binding="raceResultsTable">

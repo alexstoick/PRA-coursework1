@@ -1,15 +1,54 @@
 package com.alexstoick.PRA.coursework1;
 
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import java.util.Observable;
+import java.util.Observer;
+
 /**
  * Created by alexstoick on 1/26/14.
  */
-public class TableController {
+public class TableController implements Observer{
 
+	private JTable table ;
+	private DefaultTableModel tableModel ;
 
-
-	public static void refreshTable ( String searchQuery )
+	public TableController ( JTable table )
 	{
+		this.table = table ;
+		tableModel = (DefaultTableModel)table.getModel () ;
+
+		tableModel.addColumn ( "Position" );
+		tableModel.addColumn ( "Bib No." ) ;
+		tableModel.addColumn ( "Time" ) ;
+		tableModel.addColumn ( "Gender" ) ;
+		tableModel.addColumn ( "Category" ) ;
+		tableModel.addColumn ( "Runs" ) ;
 
 	}
 
+	private void clearTable ()
+	{
+		for ( int i = tableModel.getRowCount () - 1 ; i > -1 ; -- i )
+			tableModel.removeRow (i);
+	}
+
+	public void refreshTable ( Race race )
+	{
+		clearTable () ;
+
+		for ( int i = 0 ; i < 10 ; ++ i )
+		{
+			Runner currentRunner = race.getRunnerAtIndex ( i ) ;
+			tableModel.addRow ( new Object[]{ currentRunner.getFinishPosition () , currentRunner.getBib () ,
+					currentRunner.getRaceTime () , currentRunner.getGender () , currentRunner.getCategory () ,
+					currentRunner.getNumberOfRuns () } );
+		}
+	}
+
+	public void update (Observable o, Object arg) {
+
+		refreshTable ( (Race) arg ) ;
+
+	}
 }
