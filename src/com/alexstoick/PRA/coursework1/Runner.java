@@ -34,6 +34,14 @@ public class Runner {
 		this.bib = bib ;
 	}
 
+	/**
+	 *
+	 * @return Returns the age category of the runner.
+	 */
+	public String getCategory () {
+		return category;
+	}
+
 	private void setupRaceTimeInSeconds ()
 	{
 		String[] splitRaceTime = raceTime.split(":") ;

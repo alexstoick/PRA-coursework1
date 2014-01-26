@@ -14,7 +14,7 @@ import java.util.LinkedList;
 public class RaceDataSource {
 
 	private RunningAPI server ;
-	LinkedList results ;
+	LinkedList<LocationNameAndKey> results ;
 	ArrayList<Race> races = new ArrayList<Race> () ;
 
 	/**
@@ -33,15 +33,14 @@ public class RaceDataSource {
 	public void queryWithString ( String search )
 	{
 		String searchFor = "Preston" ;
-		String searchIn = "get_address" ;
 
-		this.results = server.search (searchIn,searchFor) ;
+		this.results = Server.searchForRaceWithIdentifier (searchFor) ;
 
 		int size = results.size () ;
 
 		for ( int i = 0 ; i < size ; ++ i )
 		{
-			LocationNameAndKey currentResult = (LocationNameAndKey) results.get(i);
+			LocationNameAndKey currentResult = results.get(i);
 			DataTable data = server.getDataFor(currentResult);
 			int rowCount = data.getRowCount();
 

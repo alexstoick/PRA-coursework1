@@ -21,6 +21,16 @@ public class ListController implements Observer {
 
 		System.out.println(searchTerm);
 
+		RaceDataSource raceDataSource = new RaceDataSource () ;
 
+		raceDataSource.queryWithString ( searchTerm ) ;
+		DefaultListModel listModel = (DefaultListModel)list.getModel () ;
+		listModel.removeAllElements ();
+		if ( raceDataSource.races != null )
+			for ( Race currentRace : raceDataSource.races )
+			{
+				System.out.println ( currentRace.getName());
+				listModel.addElement ( currentRace.getName () );
+			}
 	}
 }

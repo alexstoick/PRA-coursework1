@@ -25,12 +25,21 @@ public class Race {
 	}
 
 	/**
+	 * Getter for the name property.
+	 * @return A string that represents the name of the race.
+	 */
+	public String getName () {
+		return name;
+	}
+
+	/**
 	 *
 	 * @param r Adds the runner r to the ArrayList of runners for the current race.
 	 */
 	public void addRunner ( Runner r )
 	{
 		runners.add ( r ) ;
+		addAgeGroup ( r.getCategory () );
 	}
 
 	/**

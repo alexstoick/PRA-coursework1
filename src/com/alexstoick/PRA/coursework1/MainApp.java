@@ -1,5 +1,7 @@
 package com.alexstoick.PRA.coursework1;
 
+import runningdata.RunningAPI;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -25,6 +27,8 @@ public class MainApp {
 		test.printRunners ();
 
 		MainFrame mainFrame = new MainFrame() ;
+
+		RunningAPI server = Server.getInstance () ;
 
 		JFrame frame = new JFrame ("MainFrame");
 		frame.setContentPane (mainFrame.getRootPanel ());
