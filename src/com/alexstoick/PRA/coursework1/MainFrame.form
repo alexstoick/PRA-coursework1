@@ -96,7 +96,7 @@
             </constraints>
             <properties>
               <enabled value="true"/>
-              <visible value="false"/>
+              <visible value="true"/>
             </properties>
             <border type="none" title="Top Ten Finishers" title-justification="2"/>
             <children>
@@ -118,7 +118,7 @@
                 </properties>
                 <border type="none"/>
                 <children>
-                  <component id="615d4" class="javax.swing.JTable" binding="raceResultsTable">
+                  <component id="615d4" class="javax.swing.JTable" binding="raceResultsTable" custom-create="true">
                     <constraints/>
                     <properties/>
                   </component>
