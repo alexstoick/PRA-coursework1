@@ -13,9 +13,12 @@ public class ListController extends Observable implements Observer,ListSelection
 
 	private JList list ;
 	private RaceDataSource raceDataSource ;
+	private JPanel centerRightPanel ;
 
-	public ListController ( JList list )
+
+	public ListController ( JList list , JPanel panel )
 	{
+		this.centerRightPanel = panel ;
 		this.list = list ;
 		list.addListSelectionListener ( this );
 	}
@@ -25,6 +28,7 @@ public class ListController extends Observable implements Observer,ListSelection
 		int selectedIndex = list.getSelectedIndex () ;
 		if ( selectedIndex == -1 )
 			return ;
+		centerRightPanel.setVisible ( true );
 		notifyObservers( new Object[] { raceDataSource.runnersForRaceAtIndex ( selectedIndex ) ,
 						raceDataSource.ageGroupsForRaceAtIndex( selectedIndex) ,
 						selectedIndex } );
@@ -43,7 +47,7 @@ public class ListController extends Observable implements Observer,ListSelection
 		listModel.removeAllElements ();
 		for ( int i = 0 ; i < raceDataSource.getRacesCount () ; ++ i )
 		{
-			listModel.addElement ( raceDataSource.getNameForRaceAtIndex (i) );
+			listModel.addElement (raceDataSource.getNameForRaceAtIndex (i));
 		}
 	}
 }

@@ -19,6 +19,10 @@ public class MainFrame {
 	private JTable raceResultsTable;
 	private JScrollPane raceResultsScrollPane;
 
+	public JPanel getRightPanel () {
+		return rightPanel;
+	}
+
 	public JPanel getRootPanel () {
 		return rootPanel;
 	}

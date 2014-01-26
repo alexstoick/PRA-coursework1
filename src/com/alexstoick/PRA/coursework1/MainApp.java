@@ -23,8 +23,8 @@ public class MainApp {
 		frame.pack ();
 		frame.setVisible (true);
 
-		SearchController searchController = new SearchController (mainFrame.getSearchTextField ()) ;
-		ListController listController = new ListController( mainFrame.getRaceList () ) ;
+		SearchController searchController = new SearchController (mainFrame.getSearchTextField () , mainFrame.getRightPanel () ) ;
+		ListController listController = new ListController( mainFrame.getRaceList () , mainFrame.getRightPanel ()) ;
 		TableController tableController = new TableController ( mainFrame.getRaceResultsTable () ) ;
 		ComboBoxController comboBoxController = new ComboBoxController ( mainFrame.getRaceTypeComboBox () ) ;
 

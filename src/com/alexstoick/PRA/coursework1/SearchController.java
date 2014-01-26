@@ -11,15 +11,19 @@ import java.util.Observable;
 public class SearchController extends Observable implements ActionListener {
 
 	private JTextField searchTextField ;
+	private JPanel centerRightPanel;
 
-	public SearchController ( JTextField searchTextField)
+	public SearchController ( JTextField searchTextField , JPanel panel )
 	{
+		this.centerRightPanel = panel ;
 		this.searchTextField = searchTextField ;
+		centerRightPanel.setVisible ( false );
 	}
 
 	public void actionPerformed ( ActionEvent e )
 	{
 		setChanged ();
+		centerRightPanel.setVisible ( false );
 		notifyObservers ( searchTextField.getText() );
 	}
 }

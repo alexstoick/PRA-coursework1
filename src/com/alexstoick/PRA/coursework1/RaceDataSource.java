@@ -38,7 +38,13 @@ public class RaceDataSource {
 
 		this.results = Server.searchForRaceWithIdentifier (searchFor) ;
 
+
+
 	   	races.clear ();
+		if ( results == null )
+		{
+			return ;
+		}
 		int size = results.size () ;
 
 		System.out.println ( size ) ;
