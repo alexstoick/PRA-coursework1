@@ -39,7 +39,6 @@ public class ComboBoxController extends Observable implements Observer, ActionLi
 	}
 
 	public void actionPerformed (ActionEvent e) {
-		System.out.println ( "combo box" + comboBox.getSelectedItem () ) ;
 		if ( comboBox.getSelectedItem () == null )
 			return ;
 

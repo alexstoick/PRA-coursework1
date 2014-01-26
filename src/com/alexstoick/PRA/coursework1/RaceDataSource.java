@@ -34,11 +34,14 @@ public class RaceDataSource {
 	 */
 	public void queryWithString ( String search )
 	{
-		String searchFor = "Preston" ;
+		String searchFor = search ;
 
 		this.results = Server.searchForRaceWithIdentifier (searchFor) ;
 
+	   	races.clear ();
 		int size = results.size () ;
+
+		System.out.println ( size ) ;
 
 		for ( int i = 0 ; i < size ; ++ i )
 		{

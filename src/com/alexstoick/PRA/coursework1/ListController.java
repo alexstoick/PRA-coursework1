@@ -21,9 +21,10 @@ public class ListController extends Observable implements Observer,ListSelection
 	}
 
 	public void valueChanged (ListSelectionEvent e) {
-		System.out.println ( "Selected stuff" ) ;
 		setChanged();
 		int selectedIndex = list.getSelectedIndex () ;
+		if ( selectedIndex == -1 )
+			return ;
 		notifyObservers( new Object[] { raceDataSource.runnersForRaceAtIndex ( selectedIndex ) ,
 						raceDataSource.ageGroupsForRaceAtIndex( selectedIndex) ,
 						selectedIndex } );
