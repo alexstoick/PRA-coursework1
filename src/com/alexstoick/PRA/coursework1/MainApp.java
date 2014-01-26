@@ -1,5 +1,7 @@
 package com.alexstoick.PRA.coursework1;
 
+import javax.swing.*;
+
 /**
  * Created by alexstoick on 1/21/14.
  */
@@ -23,6 +25,12 @@ public class MainApp {
 		test.orderRunners ();
 
 		test.printRunners ();
+
+		JFrame frame = new JFrame ("MainFrame");
+		frame.setContentPane (new MainFrame ().getRootPanel ());
+		frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
+		frame.pack ();
+		frame.setVisible (true);
 
 //      RunningAPI server = new RunningAPI () ;
 //
