@@ -8,15 +8,6 @@ import java.awt.*;
  */
 public class MainApp {
 
-	private static final String  email = "alexandru.stoica" ;
-	private static final String license_key = "3ae4b3d52a"  ;
-	private static JFrame frame ;
-
-	public static JFrame getFrame ()
-	{
-		return frame ;
-	}
-
 	public static void main ( String args[]) {
 
 		//System.out.println ( WorldRecordsTimes.getRecordForAgeGroupAndGender ( "JW15-19" , "M" ) ) ;
@@ -35,7 +26,7 @@ public class MainApp {
 
 		MainFrame mainFrame = new MainFrame() ;
 
-		frame = new JFrame ("MainFrame");
+		JFrame frame = new JFrame ("MainFrame");
 		frame.setContentPane (mainFrame.getRootPanel ());
 		frame.setMinimumSize(new Dimension (500, 300));
 		frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
@@ -43,7 +34,7 @@ public class MainApp {
 		frame.setVisible (true);
 
 		SearchController searchController = new SearchController (mainFrame.getSearchTextField ()) ;
-		ListController listController = new ListController() ;
+		ListController listController = new ListController( mainFrame.getRaceList () ) ;
 
 		searchController.addObserver ( listController );
 
@@ -53,16 +44,5 @@ public class MainApp {
 		JTextField searchTextField = mainFrame.getSearchTextField () ;
 		searchTextField.addActionListener ( searchController );
 
-
-
-//      RunningAPI server = new RunningAPI () ;
-//
-//		boolean success = server.connectToServer ( email , license_key ) ;
-//
-//
-//		if (success == false) {
-//			System.out.println("Fatal error: could not open connection");
-//			System.exit(1);
-//		}
 	}
 }

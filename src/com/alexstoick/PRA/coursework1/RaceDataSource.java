@@ -18,12 +18,11 @@ public class RaceDataSource {
 	ArrayList<Race> races = new ArrayList<Race> () ;
 
 	/**
-	 *
-	 * @param server Receives a connection to the API to use.
+	 * Creates a new reference to the singleton class Server.
 	 */
-	public RaceDataSource ( RunningAPI server )
+	public RaceDataSource ( )
 	{
-		this.server = server ;
+		this.server = Server.getInstance () ;
 	}
 
 	/**
