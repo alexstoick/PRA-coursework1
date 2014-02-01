@@ -15,28 +15,25 @@ public class Server extends RunningAPI {
 		return ourInstance;
 	}
 
-	public static LinkedList<LocationNameAndKey> searchForRaceWithIdentifier ( String searchTerm )
-	{
-		ourInstance.connectToServer ( email , license_key ) ;
-		return  Server.getInstance ().search("get_address" , searchTerm ) ;
+	public static LinkedList<LocationNameAndKey> searchForRaceWithIdentifier (String searchTerm) {
+		ourInstance.connectToServer (email, license_key);
+		return Server.getInstance ().search ("get_address", searchTerm);
 	}
 
-	private static final String  email = "alexandru.stoica" ;
-	private static final String license_key = "3ae4b3d52a"  ;
+	private static final String email = "alexandru.stoica";
+	private static final String license_key = "3ae4b3d52a";
 
 	private Server () {
-		RunningAPI connection  = new RunningAPI () ;
+		RunningAPI connection = new RunningAPI ();
 
-		boolean success = connection.connectToServer ( email , license_key ) ;
+		boolean success = connection.connectToServer (email, license_key);
 
-		if (success == false) {
-			System.out.println("Fatal error: could not open connection");
-			System.exit(1);
-		}
-		else
-		{
-			System.out.println ( "Setup the connection" );
-			ourInstance = connection ;
+		if ( success == false ) {
+			System.out.println ("Fatal error: could not open connection");
+			System.exit (1);
+		} else {
+			System.out.println ("Setup the connection");
+			ourInstance = connection;
 		}
 	}
 }

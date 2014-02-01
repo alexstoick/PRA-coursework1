@@ -12,15 +12,14 @@ import java.util.Observer;
  */
 public class ComboBoxController extends Observable implements Observer, ActionListener {
 
-	private JComboBox<String> comboBox ;
-	private DefaultComboBoxModel comboBoxModel ;
-	private int raceIndex ;
+	private JComboBox<String> comboBox;
+	private DefaultComboBoxModel comboBoxModel;
+	private int raceIndex;
 
-	public ComboBoxController ( JComboBox comboBox )
-	{
-		this.comboBox = comboBox ;
-		comboBoxModel = (DefaultComboBoxModel) comboBox.getModel () ;
-		comboBox.addActionListener ( this );
+	public ComboBoxController (JComboBox comboBox) {
+		this.comboBox = comboBox;
+		comboBoxModel = (DefaultComboBoxModel) comboBox.getModel ();
+		comboBox.addActionListener (this);
 	}
 
 	public void update (Observable o, Object arg) {
@@ -28,33 +27,33 @@ public class ComboBoxController extends Observable implements Observer, ActionLi
 		comboBoxModel.removeAllElements ();
 
 		Object[] arguments_array = (Object[]) arg;
-		HashSet<String> ageGroups = (HashSet<String>) arguments_array[1] ;
+		HashSet<String> ageGroups = (HashSet<String>) arguments_array[ 1 ];
 
-		raceIndex = (Integer) arguments_array[2] ;
+		raceIndex = (Integer) arguments_array[ 2 ];
 
-		comboBoxModel.addElement ( "All" ) ;
+		comboBoxModel.addElement ("All");
 		for ( String ageGroup : ageGroups )
-			comboBoxModel.addElement ( ageGroup );
+			comboBoxModel.addElement (ageGroup);
 
 	}
 
 	public void actionPerformed (ActionEvent e) {
 		if ( comboBox.getSelectedItem () == null )
-			return ;
+			return;
 
-		Object[] result ;
+		Object[] result;
 
-		if ( comboBox.getSelectedItem ().equals ( "All" ) )
-			result = new Object[] {
-				RaceDataSource.runnersForRaceAtIndex (raceIndex)
-			} ;
+		if ( comboBox.getSelectedItem ().equals ("All") )
+			result = new Object[]{
+					RaceDataSource.runnersForRaceAtIndex (raceIndex)
+			};
 		else
-			result = new Object[] {
-				RaceDataSource.runnersForRaceAtIndexWithAgeGroup ( raceIndex , (String)comboBox.getSelectedItem ())
-			} ;
+			result = new Object[]{
+					RaceDataSource.runnersForRaceAtIndexWithAgeGroup (raceIndex, (String) comboBox.getSelectedItem ())
+			};
 
 		setChanged ();
 
-		notifyObservers ( result );
+		notifyObservers (result);
 	}
 }

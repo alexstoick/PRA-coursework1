@@ -51,24 +51,19 @@ public class MainFrame {
 	}
 
 	private void createUIComponents () {
-		raceResultsTable = new JTable ( new DefaultTableModel ()){
+		raceResultsTable = new JTable (new DefaultTableModel ()) {
 
 			@Override
-			public Component prepareRenderer ( TableCellRenderer renderer, int row, int column)
-			{
-				Component component = super.prepareRenderer ( renderer , row , column ) ;
+			public Component prepareRenderer (TableCellRenderer renderer, int row, int column) {
+				Component component = super.prepareRenderer (renderer, row, column);
 
-				if ( raceResultsTable.getColumnCount () > 0 )
-				{
-					String gender = (String) getModel().getValueAt(row,3) ;
-					if ( gender.equals("M") )
-					{
-						component.setBackground ( new Color(255,163,0));
-					}
-					else
-					{
-						component.setBackground ( new Color(0,0,250));
-						component.setForeground ( new Color ( 255 , 255 , 255 ));
+				if ( raceResultsTable.getColumnCount () > 0 ) {
+					String gender = (String) getModel ().getValueAt (row, 3);
+					if ( gender.equals ("M") ) {
+						component.setBackground (new Color (255, 163, 0));
+					} else {
+						component.setBackground (new Color (0, 0, 250));
+						component.setForeground (new Color (255, 255, 255));
 						//component.setFont ( new Font ( ));
 					}
 				}
